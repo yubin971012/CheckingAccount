@@ -1,6 +1,6 @@
-
 public class checkingAccount extends Account {
-	
+
+
 	private double debit_limit;
 	public void setDebit_limit(double s){
 		debit_limit=s;
@@ -25,5 +25,22 @@ public class checkingAccount extends Account {
 		}else if(getBalance()>0){
 			setBalance(getBalance()+getBalance()*interest);
 		}
+	}
+	
+	@Override
+	public double getWithdrawableAccount(){
+		return setBalance + debit_limit;
+	}
+
+	@Override
+	public void passTime(int t){
+		
+	}
+	
+	public boolean isBankrupted(){
+		if(getWithdrawableAccount()<0) return false;
+		else if(getWithdrawableAccount()>0);
+		return true;
+	
 	}
 }

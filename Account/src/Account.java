@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class Account{
+public abstract class Account{
 	private double balance;
 	public double getBalance(){
 		return balance;
@@ -19,4 +17,7 @@ public class Account{
 		balance=b;
 		return balance;
 	}
+	public abstract double getWithdrawableAccount();
+	
+	public abstract void passTime(int t);
 }
