@@ -1,36 +1,29 @@
 
 public class checkingAccount extends Account {
 	
-	private void setBalance(){
-		
-	}
-	
-	private double credit_limit;
-	public double getCredit_limit(){
-		return credit_limit;
+	private double debit_limit;
+	public void setDebit_limit(double d){
+		debit_limit=d;
 	}
 	private double interest;
-	public double getInterest(){
-		return interest;
+	public void setInterest(double i){
+		interest=i;
 	}
 	private double loan_interest;
-	public double getLoan_interest(){
-		if(balance>0){
-			
-		}
-		setBalance();
+	public void setLoan_interest(double li){
+		loan_interest=li;
 	}
-	
 	
 	@Override
 	public void debit(double b){
-		balance -=b;
-		setBalanace();
+		setBalance(getBalance()-b);
 	}
-	
+
 	public void nextMonth(double b){
-		if(balance<0){
-			
+		if(getBalance()<0){
+			setBalance(getBalance()-getBalance()*loan_interest);
+		}else if(getBalance()>0){
+			setBalance(getBalance()+getBalance()*interest);
 		}
 	}
 }
