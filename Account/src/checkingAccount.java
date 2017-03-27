@@ -2,8 +2,8 @@
 public class checkingAccount extends Account {
 	
 	private double debit_limit;
-	public void setDebit_limit(double d){
-		debit_limit=d;
+	public void setDebit_limit(double s){
+		debit_limit=s;
 	}
 	private double interest;
 	public void setInterest(double i){
