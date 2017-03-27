@@ -20,9 +20,9 @@ public static void main(String[]args){
 	account1.setBalance(100.00);
 	account2.setBalance(100.00);
 	
+	
 	System.out.printf("Account1 balance:$ %f\n",account1.getBalance());
 	System.out.printf("Account2 balance:$ %f\n",account2.getBalance());
-	
 	
 	System.out.print("Enter deposit amount for Account1:");
 	double credit = input.nextDouble();
