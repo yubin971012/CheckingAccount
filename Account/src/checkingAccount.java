@@ -1,5 +1,12 @@
 public class checkingAccount extends Account {
 
+	public checkingAccount(double balance,double debit_limit,double interest, double loan_interest){
+		super(balance);
+		setBalance(balance);
+		setInterest(interest);
+		setDebit_limit(debit_limit);
+		setLoan_interest(loan_interest);
+	}
 
 	private double debit_limit;
 	public void setDebit_limit(double s){
@@ -29,12 +36,16 @@ public class checkingAccount extends Account {
 	
 	@Override
 	public double getWithdrawableAccount(){
-		return setBalance + debit_limit;
+		return getBalance() + debit_limit;
 	}
 
 	@Override
-	public void passTime(int t){
-		
+	public void passTime(int month){
+		if(getBalance()<0){
+			setBalance(getBalance()+getBalance()*loan_interest);
+		}else if(getBalance()>0){
+			setBalance(getBalance()+getBalance()*interest);
+		}
 	}
 	
 	public boolean isBankrupted(){
