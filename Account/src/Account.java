@@ -7,8 +7,8 @@ public abstract class Account{
 	public double getBalance(){
 		return balance;
 	}
-	public void debit(double b){
-		balance -= b;
+	public void debit(double amount) throws Exception{
+		balance -= amount;
 	}
 	public void credit(double b){
 		balance += b;
@@ -24,4 +24,5 @@ public abstract class Account{
 	public abstract double getWithdrawableAccount();
 	
 	public abstract void passTime(int t);
+	
 }

@@ -22,8 +22,14 @@ public class checkingAccount extends Account {
 	}
 	
 	@Override
-	public void debit(double b){
-		setBalance(getBalance()-b);
+	public void debit(double amount) throws Exception{
+		if(amount<0){
+			throw new Exception("음수입력!");
+		}else if(amount>debit_limit){
+			throw new Exception("Debit amount exceed account balance.");
+		}else{
+		setBalance(getBalance()-amount);
+		}
 	}
 
 	public void nextMonth(double b){
@@ -44,7 +50,7 @@ public class checkingAccount extends Account {
 		if(getBalance()<0){
 			setBalance(getBalance()+getBalance()*loan_interest);
 		}else if(getBalance()>0){
-			setBalance(getBalance()+getBalance()*interest);
+			setBalance(getBalance()+getBalance()*month*interest);
 		}
 	}
 	
